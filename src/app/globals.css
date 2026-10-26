@@ -1,26 +1,199 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* Dark mode driven by data-theme attribute (see layout.js inline script) */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-card: var(--card);
+  --color-surface: var(--surface);
+  --color-line: var(--line);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  /* Light theme */
+  --background: #fbfbfd;
+  --foreground: #18181b;
+  --muted: #52525b;
+  --card: #ffffff;
+  --surface: #f4f4f8;
+  --line: rgba(24, 24, 27, 0.09);
+  --accent: #4f46e5;
+  --accent-2: #7c3aed;
+}
+
+[data-theme="dark"] {
+  /* Dark theme (default) */
+  --background: #09090f;
+  --foreground: #f4f4f5;
+  --muted: #a1a1aa;
+  --card: rgba(255, 255, 255, 0.04);
+  --surface: rgba(255, 255, 255, 0.05);
+  --line: rgba(255, 255, 255, 0.09);
+  --accent: #6366f1;
+  --accent-2: #8b5cf6;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  color-scheme: dark;
 }
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  transition: background-color 0.35s ease, color 0.35s ease;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--accent) 30%, transparent);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* ---------- Brand utilities ---------- */
+
+.text-gradient {
+  background-image: linear-gradient(100deg, var(--accent), var(--accent-2));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.bg-gradient-brand {
+  background-image: linear-gradient(100deg, var(--accent), var(--accent-2));
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold text-white shadow-lg transition-transform duration-300;
+  background-image: linear-gradient(100deg, var(--accent), var(--accent-2));
+  box-shadow: 0 10px 30px -12px color-mix(in srgb, var(--accent) 65%, transparent);
+}
+.btn-primary:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-ghost {
+  @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-colors;
+  border: 1px solid var(--line);
+}
+.btn-ghost:hover {
+  border-color: color-mix(in srgb, var(--accent) 60%, transparent);
+  color: var(--accent);
+}
+
+.card {
+  @apply rounded-2xl;
+  background-color: var(--card);
+  border: 1px solid var(--line);
+}
+
+.card-hover {
+  transition: transform 0.35s ease, box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  border-color: color-mix(in srgb, var(--accent) 45%, transparent);
+  box-shadow: 0 18px 50px -20px color-mix(in srgb, var(--accent) 50%, transparent);
+}
+
+.glass {
+  background-color: var(--card);
+  border: 1px solid var(--line);
+  backdrop-filter: blur(16px) saturate(150%);
+  -webkit-backdrop-filter: blur(16px) saturate(150%);
+}
+
+/* ---------- Atmosphere ---------- */
+
+.aurora {
+  position: absolute;
+  border-radius: 9999px;
+  pointer-events: none;
+}
+.aurora-a {
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent) 34%, transparent), transparent);
+  filter: blur(70px);
+}
+.aurora-b {
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--accent-2) 30%, transparent), transparent);
+  filter: blur(70px);
+}
+
+.dot-grid {
+  background-image: radial-gradient(color-mix(in srgb, var(--foreground) 8%, transparent) 1px, transparent 1.4px);
+  background-size: 26px 26px;
+}
+
+/* ---------- Motion ----------
+ * Hidden states are gated behind `html.js` (added by the inline script in layout.jsx,
+ * before first paint). No-JS / static / print output always renders content visible.
+ */
+
+html.js .reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 0.61, 0.36, 1);
+  will-change: opacity, transform;
+}
+html.js .reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+html.js .ring-fg {
+  stroke-dashoffset: var(--c);
+  transition: stroke-dashoffset 1.5s cubic-bezier(0.22, 0.61, 0.36, 1) 0.2s;
+}
+html.js .ring-fg.ring-on {
+  stroke-dashoffset: var(--to);
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.45; transform: scale(0.72); }
+}
+.animate-dot {
+  animation: pulse-dot 2s ease-in-out infinite;
+}
+
+@keyframes bounce-soft {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(7px); }
+}
+.animate-bounce-soft {
+  animation: bounce-soft 2.2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  html.js .reveal { opacity: 1; transform: none; transition: none; }
+  html.js .ring-fg { transition: none; stroke-dashoffset: var(--to); }
+  .animate-float, .animate-dot, .animate-bounce-soft { animation: none; }
 }

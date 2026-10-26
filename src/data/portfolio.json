@@ -1,0 +1,316 @@
+{
+  "_readme": "Ei file e shob portfolio content ache. UI ei file theke map hoye chokh dekhay. Kono section/text change korte hole ekhane edit korun — code touch korar dorkar nai. Field er _hint e dekhe taken.",
+  "profile": {
+    "name": "Mehadee Hassan",
+    "firstName": "Mehadee",
+    "lastName": "Hassan",
+    "roles": ["Full Stack Software Engineer (MERN)", "React & Next.js Developer"],
+    "location": "Dhaka, Bangladesh",
+    "summary": "I build scalable, responsive web apps with React, Next.js, and Node.js — with strong backend, API design, and AI-assisted development experience.",
+    "photo": "/profile.jpg",
+    "resume": "/Mehadee-Hassan.pdf",
+    "availability": "Open to full-time & freelance work",
+    "_hint": "photo/resume path public/ folder er file er sathe match kore. Name, roles, summary ekhane change korun."
+  },
+  "contact": {
+    "email": "mehedi19999@gmail.com",
+    "phone": "+8801643896271",
+    "phoneDisplay": "+880 1643 896 271",
+    "whatsapp": "8801643896271",
+    "address": "Dhaka, Bangladesh",
+    "_hint": "whatsapp empty (\"\") rakle button hide hobe. phoneDisplay only man dekhano hoy."
+  },
+  "socials": [
+    { "label": "GitHub", "icon": "github", "url": "https://github.com/mehadeehassan" },
+    { "label": "LinkedIn", "icon": "linkedin", "url": "https://www.linkedin.com/in/mehadeehassan" },
+    { "label": "Twitter", "icon": "twitter", "url": "", "_hint": "Link empty (\"\") hoile button dekhabe na" },
+    { "label": "Facebook", "icon": "facebook", "url": "", "_hint": "Link empty (\"\") hoile button dekhabe na" }
+  ],
+  "about": {
+    "eyebrow": "About me",
+    "title": "A developer who ships end to end",
+    "highlights": ["Full Stack (MERN)", "35+ Projects & counting", "Open Source Contributor"],
+    "paragraphs": [
+      "I'm Mehadee — a Full Stack Software Engineer from Dhaka, Bangladesh, focused on the MERN stack. My journey started with curiosity about how the web works, and got serious through the “AI Driven Full Stack Web Engineer” program at Programming Hero (Batch 14), where I spent months building real, deployed projects instead of just reading tutorials.",
+      "Today I enjoy the whole arc of a product: designing REST APIs and data models on the Node.js/Express + MySQL/MongoDB side, then shaping fast, accessible, responsive interfaces with React, Next.js, and Tailwind CSS. I care about clean architecture, reusable components, and details — loading states, feedback, keyboard accessibility — the things users actually feel.",
+      "Outside code, I like working alongside AI tools (Claude, Cursor, Copilot) as a second pair of hands, watching ideas turn into working software fast. I also love technology-explorer platforms — almost proof that my favorite kind of product is one that organizes information beautifully. When I'm away from the keyboard, I enjoy cricket, movies & series, and exploring new places around Bangladesh.",
+      "I'm currently studying BSc in Computer Science & Engineering at Northern University Bangladesh, contributing to open source (Mockwave), and looking for a team where I can own features end to end."
+    ],
+    "_hint": "highlights = hero/chip badge. paragraphs = About er detailed intro (hobby/personality tomar chobi ekhane). Jemonta chao kore edit korun."
+  },
+  "skillGroups": [
+    {
+      "category": "Frontend",
+      "items": [
+        { "name": "React.js", "level": 90 },
+        { "name": "Next.js", "level": 88 },
+        { "name": "Tailwind CSS", "level": 92 },
+        { "name": "Redux Toolkit", "level": 80 }
+      ]
+    },
+    {
+      "category": "Backend",
+      "items": [
+        { "name": "Node.js", "level": 85 },
+        { "name": "Express.js", "level": 85 },
+        { "name": "RESTful APIs", "level": 88 },
+        { "name": "JWT Auth", "level": 82 }
+      ]
+    },
+    {
+      "category": "Database & Languages",
+      "items": [
+        { "name": "JavaScript (ES6+)", "level": 92 },
+        { "name": "TypeScript", "level": 75 },
+        { "name": "MySQL · Sequelize", "level": 80 },
+        { "name": "MongoDB", "level": 72 }
+      ]
+    },
+    {
+      "category": "Tools & Platforms",
+      "items": [
+        { "name": "Git & GitHub", "level": 88 },
+        { "name": "VS Code", "level": 95 },
+        { "name": "Postman", "level": 85 },
+        { "name": "Vercel", "level": 85 }
+      ]
+    },
+    {
+      "category": "AI & Productivity",
+      "items": [
+        { "name": "Claude", "level": 90 },
+        { "name": "GitHub Copilot", "level": 85 },
+        { "name": "Cursor", "level": 88 },
+        { "name": "ChatGPT", "level": 90 }
+      ]
+    }
+  ],
+  "skillChips": [
+    "Axios",
+    "React Router DOM",
+    "React Hot Toast",
+    "SweetAlert2",
+    "Multer & Cloudinary",
+    "JS-Cookie",
+    "Bootstrap",
+    "Responsive Design"
+  ],
+  "_hint_skills": "level = 0-100 (ring er percentage). level 0 dile ring 0 dekhabe. Chip gulo “Also comfortable with” hishebe dice.",
+  "education": [
+    {
+      "degree": "BSc in Computer Science & Engineering",
+      "institution": "Northern University Bangladesh",
+      "period": "2026 — Present",
+      "status": "Ongoing"
+    },
+    {
+      "degree": "Higher Secondary Certificate (HSC)",
+      "institution": "Feni Government College",
+      "period": "",
+      "status": "Completed"
+    }
+  ],
+  "certifications": [
+    {
+      "name": "AI Driven Full Stack Web Engineer",
+      "issuer": "Programming Hero",
+      "detail": "Batch 14 · Intensive full-stack engineering training with real, deployed projects"
+    }
+  ],
+  "experience": [
+    {
+      "role": "Open Source Contributor",
+      "org": "Mockwave",
+      "site": "http://mockwave.io",
+      "period": "Present",
+      "points": ["Contributing to frontend design and UI building with Next.js and Tailwind CSS."]
+    },
+    {
+      "role": "Full Stack Software Engineer",
+      "org": "Independent / Freelance Projects",
+      "site": "",
+      "period": "2024 — Present",
+      "points": [
+        "Designed and shipped full-stack web apps end to end — React/Next.js frontends with Node.js/Express REST APIs and MySQL/MongoDB persistence.",
+        "Built e-commerce, tracker, explorer and content platforms with authentication, file uploads, sorting/filtering, and data visualization.",
+        "Practiced AI-assisted development (Claude, Cursor, Copilot) to move fast without losing code quality."
+      ]
+    }
+  ],
+  "_hint_experience": "site empty (\"\") hoile org er link dekhabe na. points = bullet list.",
+  "projects": [
+    {
+      "slug": "shops",
+      "name": "Shops",
+      "tagline": "Full-stack e-commerce platform",
+      "image": "/projects/shops.png",
+      "tags": ["React", "Node.js", "Express.js", "MySQL", "Cloudinary", "Tailwind CSS"],
+      "summary": "A complete e-commerce platform with product listing, cart, checkout, and an admin panel — frontend and backend built independently from scratch.",
+      "description": [
+        "Shops is a full-stack e-commerce application I built to own every layer of the stack. The React + Tailwind storefront handles product listing, search, cart, and checkout flows, while a Node.js/Express REST API backed by MySQL (Sequelize ORM) powers the data.",
+        "I also implemented Cloudinary-based image management through Multer for product uploads, plus an admin panel for managing inventory — making it a realistic end-to-end commerce system rather than a UI demo."
+      ],
+      "tech": [
+        { "name": "React", "use": "Component architecture & storefront UI" },
+        { "name": "Node.js + Express.js", "use": "REST API design & business logic" },
+        { "name": "MySQL (Sequelize ORM)", "use": "Relational schema for products, cart, orders" },
+        { "name": "Cloudinary + Multer", "use": "Image upload pipeline" },
+        { "name": "Tailwind CSS", "use": "Responsive, utility-first styling" }
+      ],
+      "liveUrl": "https://shops-mehadee-hassan.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Building the entire backend (REST APIs with Express + MySQL/Sequelize) and the frontend simultaneously, and keeping both sides' data contracts in sync without a team.",
+        "Modeling a relational schema for products, users, cart, and orders — then keeping cart and checkout state consistent between client and server.",
+        "Reliably uploading and attaching Cloudinary-hosted images to products via Multer, including large files and failure cases."
+      ],
+      "improvements": [
+        "Add a secure payment gateway (Stripe / local providers) and order-status tracking flow.",
+        "Introduce an analytics dashboard for the admin panel with sales charts.",
+        "Migrate the API layer into a monorepo (Next.js route handlers or NestJS) for quicker iteration.",
+        "Add inventory management with low-stock alerts and bulk CSV import."
+      ]
+    },
+    {
+      "slug": "book-vibe",
+      "name": "Book-Vibe",
+      "tagline": "Book management & reading tracker",
+      "image": "/projects/book-vibe.png",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts"],
+      "summary": "A book management and reading-tracker platform with Read List / Wishlist, sortable library views, and data visualization using Recharts.",
+      "description": [
+        "Book-Vibe is a personal reading companion built with Next.js and TypeScript. Readers can collect books into Read List and Wishlist shelves, browse a sortable library view, and inspect detailed book pages with ratings and page counts.",
+        "The overview dashboard uses Recharts to visualize the collection — pages-to-read, ratings, and publisher distribution — while React Context API manages shared state and React Toastify gives instant feedback for every action."
+      ],
+      "tech": [
+        { "name": "Next.js (App Router)", "use": "Pages, routing & optimized images" },
+        { "name": "TypeScript", "use": "Type-safe data models for books" },
+        { "name": "React Context API", "use": "Shared Read List / Wishlist state without prop drilling" },
+        { "name": "Recharts", "use": "Library statistics & visualization" },
+        { "name": "Tailwind CSS", "use": "Consistent design system" }
+      ],
+      "liveUrl": "https://book-vibe-beryl-six.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Designing derived state (Read List, Wishlist, ratings) shared across several pages with the Context API while keeping the UI in sync on every update.",
+        "Making sortable library views and custom Recharts visualizations work together when the underlying collection changes dynamically.",
+        "Keeping TypeScript models accurate for book data that comes in slightly inconsistent shapes."
+      ],
+      "improvements": [
+        "Persist shelves to a database so collections sync across devices.",
+        "Add authentication and personalized yearly reading goals.",
+        "Add pagination and richer filters (genre, author, rating) for large collections.",
+        "Introduce an import tool from Goodreads / CSV."
+      ]
+    },
+    {
+      "slug": "hero-io",
+      "name": "HERO.IO",
+      "tagline": "App-explorer platform",
+      "image": "/projects/hero-io.png",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
+      "summary": "An app-explorer platform with live search, category filtering, and an installed-apps manager with size-based sorting.",
+      "description": [
+        "HERO.IO is a modern app marketplace concept where users discover apps by searching and filtering, then install them into a personal manager view.",
+        "Installation state is managed through React Context, hooks, and localStorage — so the “Installed Apps” screen stays in sync across search, category filtering, and size-based sorting — with React Toastify notifications for every install/uninstall action."
+      ],
+      "tech": [
+        { "name": "Next.js", "use": "Routing & static rendering" },
+        { "name": "TypeScript", "use": "Typed app catalog models" },
+        { "name": "React Context + Hooks", "use": "Installation-state management" },
+        { "name": "localStorage", "use": "Persistent installed apps across reloads" },
+        { "name": "Tailwind CSS", "use": "Clean, responsive styling" }
+      ],
+      "liveUrl": "https://hero-io-gamma.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Managing installation state entirely on the client (Context + localStorage) while keeping search, filters, and sorting views perfectly in sync.",
+        "Building cross-filtering and size-based sorting interactions in TypeScript without introducing a heavyweight state library.",
+        "Designing empty/loading states so the explorer still feels alive while data settles."
+      ],
+      "improvements": [
+        "Connect a real apps dataset or API instead of a static catalog, with pagination.",
+        "Add “top picks” ranking, ratings, and category analytics.",
+        "Introduce unit tests around the filtering/sorting logic.",
+        "Add app detail pages with screenshots, reviews, and update history."
+      ]
+    },
+    {
+      "slug": "dev-stack",
+      "name": "Dev Stack",
+      "tagline": "Developer technology explorer",
+      "image": "/projects/dev-stack.png",
+      "tags": ["React", "TypeScript", "Tailwind CSS"],
+      "summary": "An interactive platform to explore technologies and build a personalized development stack with ratings and difficulty levels.",
+      "description": [
+        "Dev Stack lets developers explore frontend, backend, database, and tooling options from a curated local JSON dataset, each with ratings and difficulty levels.",
+        "Users compose a personalized development stack — one pick per category — and see their choices rendered in a reusable, responsive UI built with React and TypeScript."
+      ],
+      "tech": [
+        { "name": "React.js", "use": "Reusable component architecture" },
+        { "name": "TypeScript", "use": "Typed technology dataset" },
+        { "name": "Local JSON dataset", "use": "Technology data source" },
+        { "name": "Tailwind CSS", "use": "Responsive, colorful UI" }
+      ],
+      "liveUrl": "https://dev-stack-eta.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Modeling the JSON dataset so technologies, ratings, difficulty, and category rules could be rendered through fully reusable components.",
+        "Designing the personalized stack-builder flow — one pick per category — while keeping the experience smooth and responsive.",
+        "Balancing a colorful design system with readable, accessible UI."
+      ],
+      "improvements": [
+        "Add user accounts so stacks can be saved and shared with a link.",
+        "Introduce side-by-side comparison between two or more stacks.",
+        "Let the community vote and comment on stacks.",
+        "Generate shareable stack cards (OG images) from a user's selection."
+      ]
+    },
+    {
+      "slug": "marqueereel",
+      "name": "MarqueeReel",
+      "tagline": "Movie & TV explorer without adds",
+      "image": "/projects/marqueereel.png",
+      "tags": ["React", "React Router", "TVMaze API", "Tailwind CSS"],
+      "summary": "A movie & TV-show explorer consuming the TVMaze API, with live search and a details modal for cast, genre, and runtime.",
+      "description": [
+        "MarqueeReel is a fast, keyboard-friendly way to find your next binge-worthy show. It consumes the TVMaze API with live search as you type, and each result opens a details modal showing cast, genres, ratings, and runtime.",
+        "Every screen is built from reusable components with proper loading and error states, keyboard-accessible modal interactions, and React Router for clean navigation."
+      ],
+      "tech": [
+        { "name": "React.js", "use": "Component-driven UI" },
+        { "name": "React Router", "use": "Client-side navigation" },
+        { "name": "TVMaze API", "use": "Live shows, cast & schedule data" },
+        { "name": "Tailwind CSS", "use": "Dark, cinematic styling" }
+      ],
+      "liveUrl": "https://marqueereel.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Building live search against the TVMaze API with debouncing, race-condition handling, and smooth loading/error states.",
+        "Implementing a keyboard-accessible details modal with proper focus trapping so it works with keyboard only.",
+        "Designing a cinematic dark UI that stays readable at long sessions."
+      ],
+      "improvements": [
+        "Add a watchlist that persists per user (localStorage first, database later).",
+        "Introduce infinite scroll or pagination for large result sets.",
+        "Show trending and schedule sections from more TVMaze endpoints.",
+        "Support trailers via YouTube embeds."
+      ],
+      "_hint": "githubUrl = portfolio er CLIENT repo er link. Khali (\"\") rakle GitHub button dekhabe na; link boshiye dile button dekhabe."
+    }
+  ],
+  "nav": [
+    { "id": "home", "label": "Home" },
+    { "id": "about", "label": "About" },
+    { "id": "skills", "label": "Skills" },
+    { "id": "education", "label": "Education" },
+    { "id": "experience", "label": "Experience" },
+    { "id": "projects", "label": "Projects" },
+    { "id": "contact", "label": "Contact" }
+  ],
+  "footer": {
+    "note": "Designed & built with Next.js, Tailwind CSS, and a lot of chai.",
+    "year": 2026,
+    "_hint": "footer note/yeare ekhane; na change koro tahole by default acha."
+  }
+}
