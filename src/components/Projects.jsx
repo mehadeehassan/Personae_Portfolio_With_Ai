@@ -1,16 +1,37 @@
+"use client";
+
+import { useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import data from "@/data/portfolio.json";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import { ArrowRightIcon, ExternalLinkIcon } from "@/components/icons";
+import {
+  ArrowRightIcon,
+  ChevronDownIcon,
+  ExternalLinkIcon,
+} from "@/components/icons";
+
+const PAGE_SIZE = 9;
 
 function isRealUrl(url) {
   return Boolean(url) && !String(url).startsWith("_hint");
 }
 
 export default function Projects() {
-  const { projects } = data;
+  const projects = data.projects;
+  const totalPages = Math.ceil(projects.length / PAGE_SIZE);
+  const [page, setPage] = useState(1);
+  const topRef = useRef(null);
+
+  const start = (page - 1) * PAGE_SIZE;
+  const visibleProjects = projects.slice(start, start + PAGE_SIZE);
+
+  function goToPage(nextPage) {
+    if (nextPage < 1 || nextPage > totalPages || nextPage === page) return;
+    setPage(nextPage);
+    topRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }
 
   return (
     <section id="projects" className="scroll-mt-24 py-20 sm:py-24">
@@ -25,8 +46,10 @@ export default function Projects() {
           description="Each project is deployed and live — open one to see the tech stack, the journey, and what comes next."
         />
 
+        <div ref={topRef} className="scroll-mt-24" />
+
         <div className="grid gap-6 sm:grid-cols-2 xl:grid-cols-3">
-          {projects.map((project, i) => (
+          {visibleProjects.map((project, i) => (
             <Reveal key={project.slug} delay={(i % 3) * 110}>
               <article className="card card-hover flex h-full flex-col overflow-hidden">
                 <Link
@@ -94,6 +117,50 @@ export default function Projects() {
             </Reveal>
           ))}
         </div>
+
+        {/* Pagination */}
+        {totalPages > 1 ? (
+          <nav
+            aria-label="Projects pagination"
+            className="mt-12 flex items-center justify-center gap-2"
+          >
+            <button
+              type="button"
+              onClick={() => goToPage(page - 1)}
+              disabled={page === 1}
+              aria-label="Previous page"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors enabled:hover:text-accent enabled:hover:border-accent disabled:opacity-40"
+            >
+              <ChevronDownIcon size={16} className="rotate-90" />
+            </button>
+
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((n) => (
+              <button
+                key={n}
+                type="button"
+                onClick={() => goToPage(n)}
+                aria-current={n === page ? "page" : undefined}
+                className={`inline-flex h-10 w-10 items-center justify-center rounded-full text-sm font-semibold transition-all ${
+                  n === page
+                    ? "bg-gradient-brand text-white shadow-md"
+                    : "border border-line text-muted enabled:hover:border-accent enabled:hover:text-accent"
+                }`}
+              >
+                {n}
+              </button>
+            ))}
+
+            <button
+              type="button"
+              onClick={() => goToPage(page + 1)}
+              disabled={page === totalPages}
+              aria-label="Next page"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors enabled:hover:text-accent enabled:hover:border-accent disabled:opacity-40"
+            >
+              <ChevronDownIcon size={16} className="-rotate-90" />
+            </button>
+          </nav>
+        ) : null}
       </div>
     </section>
   );

@@ -23,13 +23,13 @@
   "socials": [
     { "label": "GitHub", "icon": "github", "url": "https://github.com/mehadeehassan" },
     { "label": "LinkedIn", "icon": "linkedin", "url": "https://www.linkedin.com/in/mehadeehassan" },
-    { "label": "Twitter", "icon": "twitter", "url": "", "_hint": "Link empty (\"\") hoile button dekhabe na" },
-    { "label": "Facebook", "icon": "facebook", "url": "", "_hint": "Link empty (\"\") hoile button dekhabe na" }
+    { "label": "Twitter", "icon": "twitter", "url": "" },
+    { "label": "Facebook", "icon": "facebook", "url": "" }
   ],
   "about": {
     "eyebrow": "About me",
     "title": "A developer who ships end to end",
-    "highlights": ["Full Stack (MERN)", "35+ Projects & counting", "Open Source Contributor"],
+    "highlights": ["Full Stack (MERN)", "16+ Projects deployed", "Open Source Contributor"],
     "paragraphs": [
       "I'm Mehadee — a Full Stack Software Engineer from Dhaka, Bangladesh, focused on the MERN stack. My journey started with curiosity about how the web works, and got serious through the “AI Driven Full Stack Web Engineer” program at Programming Hero (Batch 14), where I spent months building real, deployed projects instead of just reading tutorials.",
       "Today I enjoy the whole arc of a product: designing REST APIs and data models on the Node.js/Express + MySQL/MongoDB side, then shaping fast, accessible, responsive interfaces with React, Next.js, and Tailwind CSS. I care about clean architecture, reusable components, and details — loading states, feedback, keyboard accessibility — the things users actually feel.",
@@ -93,9 +93,10 @@
     "Multer & Cloudinary",
     "JS-Cookie",
     "Bootstrap",
-    "Responsive Design"
+    "Responsive Design",
+    "Better Auth",
+    "daisyUI"
   ],
-  "_hint_skills": "level = 0-100 (ring er percentage). level 0 dile ring 0 dekhabe. Chip gulo “Also comfortable with” hishebe dice.",
   "education": [
     {
       "degree": "BSc in Computer Science & Engineering",
@@ -132,12 +133,11 @@
       "period": "2024 — Present",
       "points": [
         "Designed and shipped full-stack web apps end to end — React/Next.js frontends with Node.js/Express REST APIs and MySQL/MongoDB persistence.",
-        "Built e-commerce, tracker, explorer and content platforms with authentication, file uploads, sorting/filtering, and data visualization.",
+        "Built e-commerce, news, tracker, explorer and content platforms with authentication, file uploads, sorting/filtering, and data visualization.",
         "Practiced AI-assisted development (Claude, Cursor, Copilot) to move fast without losing code quality."
       ]
     }
   ],
-  "_hint_experience": "site empty (\"\") hoile org er link dekhabe na. points = bullet list.",
   "projects": [
     {
       "slug": "shops",
@@ -145,23 +145,25 @@
       "tagline": "Full-stack e-commerce platform",
       "image": "/projects/shops.png",
       "tags": ["React", "Node.js", "Express.js", "MySQL", "Cloudinary", "Tailwind CSS"],
-      "summary": "A complete e-commerce platform with product listing, cart, checkout, and an admin panel — frontend and backend built independently from scratch.",
+      "summary": "A complete e-commerce platform with product listing, search, cart, checkout, and a secure admin panel — frontend and backend built independently from scratch.",
       "description": [
-        "Shops is a full-stack e-commerce application I built to own every layer of the stack. The React + Tailwind storefront handles product listing, search, cart, and checkout flows, while a Node.js/Express REST API backed by MySQL (Sequelize ORM) powers the data.",
-        "I also implemented Cloudinary-based image management through Multer for product uploads, plus an admin panel for managing inventory — making it a realistic end-to-end commerce system rather than a UI demo."
+        "Shops is a full-stack e-commerce application where customers can easily browse, search, and order products, while admins control the entire inventory from a secure dashboard. The React + Tailwind storefront handles product listing, search, cart, and checkout flows, while a Node.js/Express REST API backed by MySQL (Sequelize ORM) powers the data.",
+        "I also implemented Cloudinary-based image management through Multer for product uploads — and deployed the API on Render, connected to a cloud-hosted MySQL database (Aiven), with the frontend on Vercel. A genuinely end-to-end commerce system rather than a UI demo."
       ],
       "tech": [
-        { "name": "React", "use": "Component architecture & storefront UI" },
+        { "name": "React + Redux Toolkit", "use": "Storefront UI & client state" },
         { "name": "Node.js + Express.js", "use": "REST API design & business logic" },
         { "name": "MySQL (Sequelize ORM)", "use": "Relational schema for products, cart, orders" },
         { "name": "Cloudinary + Multer", "use": "Image upload pipeline" },
-        { "name": "Tailwind CSS", "use": "Responsive, utility-first styling" }
+        { "name": "JWT Authentication", "use": "Admin & user access control" },
+        { "name": "Render + Aiven MySQL", "use": "Cloud hosting for API & database" }
       ],
       "liveUrl": "https://shops-mehadee-hassan.vercel.app",
       "githubUrl": "_hint-portfolio-client-repo-link",
       "challenges": [
         "Building the entire backend (REST APIs with Express + MySQL/Sequelize) and the frontend simultaneously, and keeping both sides' data contracts in sync without a team.",
         "Modeling a relational schema for products, users, cart, and orders — then keeping cart and checkout state consistent between client and server.",
+        "Connecting a cloud-hosted Aiven MySQL database to a Render-hosted Express API securely, and handling cold starts gracefully.",
         "Reliably uploading and attaching Cloudinary-hosted images to products via Multer, including large files and failure cases."
       ],
       "improvements": [
@@ -179,8 +181,8 @@
       "tags": ["Next.js", "TypeScript", "Tailwind CSS", "Recharts"],
       "summary": "A book management and reading-tracker platform with Read List / Wishlist, sortable library views, and data visualization using Recharts.",
       "description": [
-        "Book-Vibe is a personal reading companion built with Next.js and TypeScript. Readers can collect books into Read List and Wishlist shelves, browse a sortable library view, and inspect detailed book pages with ratings and page counts.",
-        "The overview dashboard uses Recharts to visualize the collection — pages-to-read, ratings, and publisher distribution — while React Context API manages shared state and React Toastify gives instant feedback for every action."
+        "Book-Vibe is a personal reading companion built with Next.js and TypeScript. Readers can browse books and inspect rich details for each title — author, rating, reviews, category, tags, total pages, publisher, and publication year — then collect them into Read List and Wishlist shelves, with the library sortable by rating, pages, or publish year.",
+        "The overview dashboard uses Recharts to visualize the collection, while React Context API manages shared state and React Toastify gives instant feedback for every action — turning a simple book manager into a complete reading journey tracker."
       ],
       "tech": [
         { "name": "Next.js (App Router)", "use": "Pages, routing & optimized images" },
@@ -211,8 +213,9 @@
       "tags": ["Next.js", "TypeScript", "Tailwind CSS"],
       "summary": "An app-explorer platform with live search, category filtering, and an installed-apps manager with size-based sorting.",
       "description": [
-        "HERO.IO is a modern app marketplace concept where users discover apps by searching and filtering, then install them into a personal manager view.",
-        "Installation state is managed through React Context, hooks, and localStorage — so the “Installed Apps” screen stays in sync across search, category filtering, and size-based sorting — with React Toastify notifications for every install/uninstall action."
+        "HERO.IO is a modern app marketplace concept where users discover apps by searching and filtering categories, then inspect rich detail pages — logo, developer, description, rating, reviews, downloads, and size.",
+        "Users install their favorite applications into a personal collection and manage or uninstall them later from the Installed Apps section — including sorting installed apps by size in ascending or descending order. Installation state is managed through React Context, hooks, and localStorage, so every install/uninstall feels instant with React Toastify notifications.",
+        "Everything is built with Next.js, React, and TypeScript, styled with Tailwind CSS for a modern, responsive UI."
       ],
       "tech": [
         { "name": "Next.js", "use": "Routing & static rendering" },
@@ -224,7 +227,7 @@
       "liveUrl": "https://hero-io-gamma.vercel.app",
       "githubUrl": "_hint-portfolio-client-repo-link",
       "challenges": [
-        "Managing installation state entirely on the client (Context + localStorage) while keeping search, filters, and sorting views perfectly in sync.",
+        "Managing installation state entirely on the client (Context + localStorage) while keeping search, filters, details pages, and sorting views perfectly in sync.",
         "Building cross-filtering and size-based sorting interactions in TypeScript without introducing a heavyweight state library.",
         "Designing empty/loading states so the explorer still feels alive while data settles."
       ],
@@ -236,26 +239,212 @@
       ]
     },
     {
+      "slug": "bangla-news24",
+      "name": "Bangla News24",
+      "tagline": "Responsive full-stack news platform",
+      "image": "/projects/bangla-news24.png",
+      "tags": ["Next.js", "TypeScript", "MongoDB", "Better Auth", "Resend"],
+      "summary": "A modern full-stack news platform with category browsing, article details, protected routes, and secure authentication — email, Google, and GitHub sign-in.",
+      "description": [
+        "Bangla News24 is a modern, responsive full-stack news platform. Anyone can browse the latest news by category and open article details without logging in, while authenticated users get protected article details and profile management.",
+        "Authentication is handled by Better Auth — email/password sign-in plus Google and GitHub OAuth, email verification, password reset, and secure session management. Resend powers verification and reset emails, with MongoDB behind the data. Responsive UI, loading states, a custom 404, and protected routes complete a smooth, secure reading experience."
+      ],
+      "tech": [
+        { "name": "Next.js + TypeScript", "use": "Server rendering, routing & type safety" },
+        { "name": "MongoDB", "use": "News & user data persistence" },
+        { "name": "Better Auth", "use": "Email/Google/GitHub auth, verification & sessions" },
+        { "name": "Resend", "use": "Verification & password-reset email delivery" },
+        { "name": "Tailwind CSS", "use": "Responsive, modern UI" }
+      ],
+      "liveUrl": "https://bangla-news24-roan.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Implementing Better Auth end to end — email verification, Google/GitHub OAuth, password reset, and session management — while wiring Resend for transactional email delivery.",
+        "Designing protected article details and profile routes that behave cleanly for guests, email users, and OAuth users alike.",
+        "Building thoughtful loading and error states plus a custom 404 so the reading flow never feels broken."
+      ],
+      "improvements": [
+        "Add an admin editorial panel with rich-text/MDX authoring.",
+        "Introduce breaking-news notifications, bookmarks, and reading history.",
+        "Add full-text search across the news archive.",
+        "Bilingual toggle (Bengali/English) for headlines and UI."
+      ]
+    },
+    {
+      "slug": "bazardor",
+      "name": "BazarDor",
+      "tagline": "Grocery price tracker",
+      "image": "/projects/bazardor.png",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "daisyUI", "Better Auth"],
+      "summary": "A responsive grocery price tracker — today's বাজার দর (market rates) for rice, oil, fish, meat & more, with an infinite-scroll ticker, sorting, and market-wise price tables.",
+      "description": [
+        "BazarDor helps shoppers see today's market prices for rice, lentils, oil, vegetables, fish, meat, eggs, dairy, and spices in one glance. The home page features an infinite-scrolling price ticker, today's top risers and fallers, and the full product list.",
+        "The category page sorts strictly by numeric value (never Bengali numerals) in ascending or descending order, and product details show minimum, maximum, and average prices plus a market-wise comparison table — protected for logged-in users. Email/password, Google, and GitHub sign-in run on Better Auth + MongoDB; notifications, skeleton loading, and a custom 404 polish the experience. Built with the Next.js App Router and styled to a Figma design with Tailwind CSS and daisyUI."
+      ],
+      "tech": [
+        { "name": "Next.js (App Router) + JavaScript", "use": "Product routing & data flow" },
+        { "name": "Tailwind CSS + daisyUI", "use": "Figma-matched responsive components" },
+        { "name": "BetterAuth + MongoDB", "use": "Authentication & user data" },
+        { "name": "React Hot Toast", "use": "Instant action feedback" },
+        { "name": "Infinite scroll ticker", "use": "Live price list on the home page" }
+      ],
+      "liveUrl": "https://bazardor-alpha.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Translating the Figma design into Tailwind + daisyUI components while keeping the ticker, sorters, and price tables consistent on small screens.",
+        "Sorting by true numeric values instead of Bengali numerals, because ascending/descending must feel mathematically right.",
+        "Balancing open browsing (no login) with protected detail pages using BetterAuth session checks."
+      ],
+      "improvements": [
+        "Add per-product price history charts.",
+        "Price-drop alerts via email or browser notifications.",
+        "Search + favorites so daily users can jump straight to their staples.",
+        "Crowdsourced submissions from different markets for real-time accuracy."
+      ]
+    },
+    {
+      "slug": "fitlog",
+      "name": "FitLog",
+      "tagline": "Workout library & planner",
+      "image": "/projects/fitlog.png",
+      "tags": ["Next.js", "TypeScript", "Tailwind CSS", "localStorage"],
+      "summary": "A responsive workout library with duration/calories/rating sorting, step-by-step instructions, plus Today's Plan and Saved tabs with live stats.",
+      "description": [
+        "FitLog is a dark, minimal workout library where users browse and search exercises — sortable by duration, calories, and rating — and open each workout to see equipment, difficulty, sets, reps, and step-by-step instructions.",
+        "Users can add up to 5 workouts to Today's Plan or store them in the Saved list. The My Plan page keeps Today's Plan and Saved in separate tabs with live stats (exercises, minutes, calories) that update the moment a workout is marked done or removed. Built with the Next.js App Router + TypeScript, styled with Tailwind CSS, and powered by React Context + useReducer state that persists via localStorage so a reload never loses a plan."
+      ],
+      "tech": [
+        { "name": "Next.js (App Router) + TypeScript", "use": "Typed pages, routing & models" },
+        { "name": "React Context + useReducer", "use": "Plan & Saved state machine" },
+        { "name": "localStorage", "use": "Plan persistence across reloads" },
+        { "name": "Tailwind CSS", "use": "Dark, minimal, responsive UI" },
+        { "name": "React Hot Toast", "use": "Instant action feedback" }
+      ],
+      "liveUrl": "https://fit-log-workout-library-chi.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Representing plan operations (add, remove, mark done) in a useReducer while keeping live stats — exercises, minutes, calories — perfectly in sync.",
+        "Enforcing the 5-workout limit on Today's Plan with friendly, immediate toast feedback.",
+        "Keeping localStorage and the reducer perfectly consistent so progress survives reloads without stale state."
+      ],
+      "improvements": [
+        "Cloud sync with per-user accounts.",
+        "Weekly calories-burned charts and streaks.",
+        "Built-in form videos for each exercise.",
+        "Shareable plans and reusable workout templates."
+      ]
+    },
+    {
+      "slug": "bpl-cricbid",
+      "name": "BPL CricBid",
+      "tagline": "Player auction management",
+      "image": "/projects/bpl-cricbid.png",
+      "tags": ["React", "TypeScript", "Tailwind CSS"],
+      "summary": "An interactive BPL player auction web app — explore detailed cricketer profiles and build a squad within a fixed virtual budget.",
+      "description": [
+        "BPL CricBid recreates a Bangladesh Premier League player auction. Users explore detailed cricketer information and select their favorite players into a squad within a fixed virtual budget, with Available Players and Selected Players managed in separate panels.",
+        "Player values and selection details are handled dynamically, aiming for a realistic auction experience. Built with React.js and TypeScript and styled responsively with Tailwind CSS."
+      ],
+      "tech": [
+        { "name": "React.js", "use": "Component-driven auction UI" },
+        { "name": "TypeScript", "use": "Typed player & budget models" },
+        { "name": "Tailwind CSS", "use": "Responsive, modern styling" },
+        { "name": "Toast notifications", "use": "Selection & budget feedback" }
+      ],
+      "liveUrl": "https://bplceicbid.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Enforcing the virtual budget so overspending is impossible, while keeping the flow forgiving and informative with instant toast feedback.",
+        "Keeping the Available Players and Selected Players panels perfectly in sync as prices and selections change dynamically.",
+        "Designing auction-like tension and clarity in a fully client-side application."
+      ],
+      "improvements": [
+        "Add multi-team auction simulation with bot bidders.",
+        "Player filters by role, country, and base price.",
+        "Persist squads per user and share them as links.",
+        "Real-time-bid style countdown for selected players."
+      ]
+    },
+    {
+      "slug": "bpl-dream11",
+      "name": "BPL Dream11",
+      "tagline": "Fantasy cricket team builder",
+      "image": "/projects/bpl-dream11.png",
+      "tags": ["React", "TypeScript", "Tailwind CSS"],
+      "summary": "An interactive fantasy cricket app where users build their own BPL Dream Team from a virtual budget.",
+      "description": [
+        "BPL Dream11 is an interactive, dynamic fantasy cricket application where users create their own Dream Team from BPL players — with a virtual budget system that governs player selection and removal, so the fantasy stays grounded in realistic constraints.",
+        "A React, TypeScript, and Tailwind CSS frontend keeps the experience extremely fast and responsive, with toast-driven feedback on every selection change."
+      ],
+      "tech": [
+        { "name": "React.js + TypeScript", "use": "Interactive team building" },
+        { "name": "Virtual budget system", "use": "Realistic selection constraints" },
+        { "name": "Tailwind CSS", "use": "Fast, responsive styling" }
+      ],
+      "liveUrl": "https://bpl-dream11-two.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Preventing over-budget teams while players are added and removed one by one in any order.",
+        "Squaring fantasy-team freedom with the discipline of a budget-based squad builder."
+      ],
+      "improvements": [
+        "Suggested formations that keep the XI balanced between batters and bowlers.",
+        "Squad scoring that simulates real match performances.",
+        "Persist teams and share them via a public link."
+      ]
+    },
+    {
+      "slug": "coding-mind",
+      "name": "Coding Mind",
+      "tagline": "Free mock API platform",
+      "image": "/projects/coding-mind.png",
+      "tags": ["React", "Tailwind CSS", "Mock APIs"],
+      "summary": "A free mock-API manager for developers — unlimited projects & endpoints, dynamic responses, fake data generation, and error/delay simulation with zero backend code.",
+      "description": [
+        "Coding Mind is a free mock API platform born from a simple frustration: while the backend is still being built, frontend developers should not have to hand-craft fake JSON. It lets developers create unlimited projects and endpoints with no backend code at all.",
+        "Configure dynamic responses, generate fake data, and simulate errors, delays, and status codes — then point your app's requests at the generated endpoints. The entire landing page and platform experience is crafted with Tailwind CSS."
+      ],
+      "tech": [
+        { "name": "React.js", "use": "Interactive endpoint builder UI" },
+        { "name": "Tailwind CSS", "use": "Complete landing + platform design" },
+        { "name": "Fake data generation", "use": "Realistic mock payloads" },
+        { "name": "Zero backend", "use": "Endpoints live in seconds" }
+      ],
+      "liveUrl": "https://coding-mind-mehadee-hassan.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Modeling a generic endpoint configuration — routes, schemas, response rules, errors, and delays — that stays simple but is genuinely powerful.",
+        "Generating believable fake data for arbitrary field shapes instead of lorem ipsum everywhere.",
+        "Designing an interface where non-trivial configuration still feels approachable."
+      ],
+      "improvements": [
+        "Request history replay and inspection",
+        "Team sharing and collaboration per project",
+        "Auth-token and rate-limit simulation",
+        "A template marketplace for common API shapes"
+      ]
+    },
+    {
       "slug": "dev-stack",
       "name": "Dev Stack",
       "tagline": "Developer technology explorer",
       "image": "/projects/dev-stack.png",
       "tags": ["React", "TypeScript", "Tailwind CSS"],
-      "summary": "An interactive platform to explore technologies and build a personalized development stack with ratings and difficulty levels.",
+      "summary": "An interactive platform to explore Frontend, Backend, Database, Language, Styling & DevOps technologies and build a personalized stack with ratings and difficulty levels.",
       "description": [
-        "Dev Stack lets developers explore frontend, backend, database, and tooling options from a curated local JSON dataset, each with ratings and difficulty levels.",
-        "Users compose a personalized development stack — one pick per category — and see their choices rendered in a reusable, responsive UI built with React and TypeScript."
+        "Dev Stack lets developers explore technologies across Frontend, Backend, Database, Programming Language, Styling, and DevOps — each with ratings and difficulty levels — then pick one per category to compose a Personal Development Stack that's easy to manage.",
+        "The technology data streams from a local JSON dataset rendered dynamically through reusable components, delivering a simple, fast, and beautiful responsive experience for developers."
       ],
       "tech": [
         { "name": "React.js", "use": "Reusable component architecture" },
         { "name": "TypeScript", "use": "Typed technology dataset" },
-        { "name": "Local JSON dataset", "use": "Technology data source" },
+        { "name": "Local JSON dataset", "use": "Dynamic technology data source" },
         { "name": "Tailwind CSS", "use": "Responsive, colorful UI" }
       ],
       "liveUrl": "https://dev-stack-eta.vercel.app",
       "githubUrl": "_hint-portfolio-client-repo-link",
       "challenges": [
-        "Modeling the JSON dataset so technologies, ratings, difficulty, and category rules could be rendered through fully reusable components.",
+        "Modeling the JSON dataset so technologies, ratings, difficulty, and per-category rules could be rendered through fully reusable components.",
         "Designing the personalized stack-builder flow — one pick per category — while keeping the experience smooth and responsive.",
         "Balancing a colorful design system with readable, accessible UI."
       ],
@@ -269,13 +458,13 @@
     {
       "slug": "marqueereel",
       "name": "MarqueeReel",
-      "tagline": "Movie & TV explorer without adds",
+      "tagline": "Movie & TV show explorer",
       "image": "/projects/marqueereel.png",
       "tags": ["React", "React Router", "TVMaze API", "Tailwind CSS"],
-      "summary": "A movie & TV-show explorer consuming the TVMaze API, with live search and a details modal for cast, genre, and runtime.",
+      "summary": "A movie & TV-show explorer consuming the TVMaze API, with live search and a details modal for summary, genre, network, status, and runtime.",
       "description": [
-        "MarqueeReel is a fast, keyboard-friendly way to find your next binge-worthy show. It consumes the TVMaze API with live search as you type, and each result opens a details modal showing cast, genres, ratings, and runtime.",
-        "Every screen is built from reusable components with proper loading and error states, keyboard-accessible modal interactions, and React Router for clean navigation."
+        "MarqueeReel is a fast, keyboard-friendly way to find your next binge-worthy show. It fetches real-time data from the TVMaze API, supports live search as you type, and renders every show as a card with poster, rating, premiere year, and other essentials.",
+        "Each title opens a details modal with summary, genre, network, status, and runtime — built from reusable components with proper loading and error states, keyboard-accessible interactions, and React Router navigation in a modern, cinema-inspired responsive UI."
       ],
       "tech": [
         { "name": "React.js", "use": "Component-driven UI" },
@@ -287,16 +476,155 @@
       "githubUrl": "_hint-portfolio-client-repo-link",
       "challenges": [
         "Building live search against the TVMaze API with debouncing, race-condition handling, and smooth loading/error states.",
-        "Implementing a keyboard-accessible details modal with proper focus trapping so it works with keyboard only.",
-        "Designing a cinematic dark UI that stays readable at long sessions."
+        "Implementing a keyboard-accessible details modal with proper focus trapping so it works with the keyboard alone.",
+        "Designing a cinematic dark UI that stays readable across long sessions."
       ],
       "improvements": [
         "Add a watchlist that persists per user (localStorage first, database later).",
         "Introduce infinite scroll or pagination for large result sets.",
         "Show trending and schedule sections from more TVMaze endpoints.",
         "Support trailers via YouTube embeds."
+      ]
+    },
+    {
+      "slug": "code-fight",
+      "name": "Code Fight",
+      "tagline": "Blogging platform",
+      "image": "/projects/code-fight.png",
+      "tags": ["Next.js", "Tailwind CSS", "Blog"],
+      "summary": "A full-stack blogging platform where readers can browse posts across different topics in a clean, responsive interface.",
+      "description": [
+        "Code Fight is a full-stack blogging application where visitors read posts across various topics in a clean, responsive reading experience.",
+        "It was one of my first steps into full-featured web applications — wiring content management with a polished reader flow — and taught me how content platforms are structured, from data to UI."
       ],
-      "_hint": "githubUrl = portfolio er CLIENT repo er link. Khali (\"\") rakle GitHub button dekhabe na; link boshiye dile button dekhabe."
+      "tech": [
+        { "name": "Next.js", "use": "Pages, routing & rendering" },
+        { "name": "Backend APIs", "use": "Content persistence layer" },
+        { "name": "Tailwind CSS", "use": "Responsive design"
+        }
+      ],
+      "liveUrl": "https://blog-project-eight-pi.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Structuring content layers (posts, topics, authors) without overcomplicating a lightweight platform.",
+        "Balancing a reading-first layout with the management features behind it."
+      ],
+      "improvements": [
+        "A rich-text editor for authors.",
+        "Comments and post reactions.",
+        "SEO improvements — tags, sitemap, and related-post suggestions."
+      ]
+    },
+    {
+      "slug": "natures-platter",
+      "name": "Nature's Platter",
+      "tagline": "Organic food landing page",
+      "image": "/projects/natures-platter.png",
+      "tags": ["HTML5", "CSS3", "JavaScript"],
+      "summary": "A fresh and organic food landing & ordering experience with food categories, engaging banner, and promo sections — pure HTML, CSS & JavaScript.",
+      "description": [
+        "Nature's Platter is a fresh and organic food landing and ordering platform where users can easily browse food items, complete with category sections, an engaging hero banner, and promotional sections in a clean, responsive UI.",
+        "This one is pure HTML, CSS, and JavaScript — solid fundamentals with no framework crutches — and one of my earliest delivered frontends."
+      ],
+      "tech": [
+        { "name": "HTML5", "use": "Semantic structure" },
+        { "name": "CSS3", "use": "Responsive layout & design" },
+        { "name": "JavaScript", "use": "Interactivity & dynamic sections" }
+      ],
+      "liveUrl": "https://nature-s-platter-three.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Getting landing-page polish — gradients, banners, and spacing — with hand-rolled CSS before reaching for any framework.",
+        "Making sections dynamic with plain JavaScript instead of a component library."
+      ],
+      "improvements": [
+        "Rebuild in React for reusable components.",
+        "Connect a real catalog with a working cart and checkout flow."
+      ]
+    },
+    {
+      "slug": "learn-with-mehedi",
+      "name": "Learn with Mehedi",
+      "tagline": "Educational platform",
+      "image": "/projects/learn-with-mehedi.png",
+      "tags": ["HTML", "CSS", "JavaScript"],
+      "summary": "An interactive e-learning platform where students can access courses and tutorials through a user-friendly interface and clean navigation.",
+      "description": [
+        "Learn with Mehedi is an interactive educational platform where students access courses and tutorials — designed around a clear course structure and intuitive navigation, based on modern web technologies, to create an efficient learning ecosystem.",
+        "The goal was simple: make learning feel easy and enjoyable, with a clean interface that keeps the focus on the lessons."
+      ],
+      "tech": [
+        { "name": "Web fundamentals", "use": "Semantic structure & layout" },
+        { "name": "Responsive UI", "use": "Layouts that work on every device" },
+        { "name": "Clean navigation", "use": "User-first information architecture" }
+      ],
+      "liveUrl": "https://learn-with-mehedi.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Organizing courses and tutorials so navigation stays intuitive rather than cluttered.",
+        "Balancing content-first layouts with modern visual polish."
+      ],
+      "improvements": [
+        "Course enrollment and progress tracking.",
+        "Embedded lesson videos and materials.",
+        "Completion certificates and a student dashboard."
+      ]
+    },
+    {
+      "slug": "reactmart",
+      "name": "ReactMart",
+      "tagline": "React e-commerce SPA",
+      "image": "/projects/reactmart.png",
+      "tags": ["React", "JavaScript", "E-commerce"],
+      "summary": "A modern React e-commerce SPA with product listing, dynamic product filtering, and cart management for a smooth single-page shopping experience.",
+      "description": [
+        "ReactMart is a modern and responsive e-commerce web application built with React.js — product listing, dynamic product filtering, and cart management wrapped in a smooth interface, designed as a single-page application (SPA).",
+        "It sharpened my React fundamentals: controlled components, lifting cart state cleanly, and keeping dynamic filters fast and predictable."
+      ],
+      "tech": [
+        { "name": "React.js", "use": "SPA architecture & components" },
+        { "name": "State-driven filtering", "use": "Dynamic product filters" },
+        { "name": "Cart management", "use": "Add / remove flows with instant UI updates" }
+      ],
+      "liveUrl": "https://ecommace-react-js.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Keeping cart state clean and single-source while product views filter and re-render dynamically.",
+        "Delivering a satisfying SPA feel with instant feedback on every cart action."
+      ],
+      "improvements": [
+        "Persist the API, sessions, and orders to a database.",
+        "Add checkout and order summary pages.",
+        "Virtualize or paginate large catalogs for performance."
+      ]
+    },
+    {
+      "slug": "metua-grocery",
+      "name": "Metua Grocery",
+      "tagline": "Online grocery store",
+      "image": "/projects/metua-grocery.png",
+      "tags": ["Bootstrap", "HTML", "CSS"],
+      "summary": "A modern online grocery platform where customers order daily essentials quickly — built with Bootstrap on a friendly, everyday-store promise.",
+      "description": [
+        "Metua Grocery is a modern, user-friendly grocery platform built around a simple promise: quality products, fast delivery, and support you can count on — a place where customers can easily and quickly order their daily essentials.",
+        "Built with Bootstrap for rapid, responsive layouts; it taught me how far a design system can carry a traditional storefront experience."
+      ],
+      "tech": [
+        { "name": "Bootstrap", "use": "Grid system & component library" },
+        { "name": "HTML/CSS", "use": "Storefront & product presentation" },
+        { "name": "Responsive layout", "use": "Mobile-first shopping experience" }
+      ],
+      "liveUrl": "https://bootstrap-ecommerce-silk.vercel.app",
+      "githubUrl": "_hint-portfolio-client-repo-link",
+      "challenges": [
+        "Customizing Bootstrap beyond its defaults so the store doesn't feel like a template.",
+        "Balancing dense grocery catalogs with clean, tappable category navigation."
+      ],
+      "improvements": [
+        "Add search with category filters.",
+        "Cart persistence (localStorage) and delivery-slot selection.",
+        "Order management backed by a real API."
+      ]
     }
   ],
   "nav": [
@@ -310,7 +638,6 @@
   ],
   "footer": {
     "note": "Designed & built with Next.js, Tailwind CSS, and a lot of chai.",
-    "year": 2026,
-    "_hint": "footer note/yeare ekhane; na change koro tahole by default acha."
+    "year": 2026
   }
 }

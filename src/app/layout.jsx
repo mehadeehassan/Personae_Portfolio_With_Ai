@@ -17,7 +17,7 @@ const geistMono = Geist_Mono({
 const { name } = data.profile;
 
 export const metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://mehadee-hassan-portfolio.vercel.app"),
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "https://portfolio-eight-phi-xohg8f4qq7.vercel.app"),
   title: {
     default: `${name} — Full Stack Software Engineer (MERN)`,
     template: `%s — ${name}`,
