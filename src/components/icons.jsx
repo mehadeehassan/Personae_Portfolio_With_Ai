@@ -1,5 +1,7 @@
 /* Lightweight inline icon set (stroke: lucide-style, brands: simple-icons style) */
 
+import { TECH_PATHS } from "@/components/tech-icons";
+
 function StrokeIcon({ children, size = 20, ...props }) {
   return (
     <svg
@@ -235,6 +237,17 @@ export function ChevronDownIcon(props) {
   );
 }
 
+export function BracesIcon(props) {
+  return (
+    <StrokeIcon {...props}>
+      <path d="M8 3H7a2 2 0 0 0-2 2v5a2 2 0 0 1-2 2 2 2 0 0 1 2 2v5c0 1.1.9 2 2 2h1" />
+      <path d="M16 21h1a2 2 0 0 0 2-2v-5c0-1.1.9-2 2-2a2 2 0 0 1-2-2V5a2 2 0 0 0-2-2h-1" />
+      <path d="M10 12h.01" />
+      <path d="M14 12h.01" />
+    </StrokeIcon>
+  );
+}
+
 /** Maps a social `icon` key from portfolio.json to the right icon component. */
 export function SocialIcon({ icon, ...props }) {
   switch (icon) {
@@ -252,4 +265,66 @@ export function SocialIcon({ icon, ...props }) {
     default:
       return null;
   }
+}
+
+export function LockIcon(props) {
+  return (
+    <StrokeIcon {...props}>
+      <rect x="4" y="11" width="16" height="10" rx="2" />
+      <path d="M8 11V7a4 4 0 0 1 8 0v4" />
+    </StrokeIcon>
+  );
+}
+
+/** Specificity-ordered matchers: first hit wins (e.g. "copilot" before "github"). */
+const TECH_MATCHERS = [
+  ["githubcopilot", ["copilot"]],
+  ["openai", ["chatgpt", "openai", "gpt"]],
+  ["github", ["github"]],
+  ["visualstudiocode", ["vscode", "visualstudio"]],
+  ["typescript", ["typescript"]],
+  ["javascript", ["javascript"]],
+  ["tailwindcss", ["tailwind"]],
+  ["nextdotjs", ["next"]],
+  ["nodedotjs", ["node"]],
+  ["react", ["react"]],
+  ["redux", ["redux"]],
+  ["express", ["express"]],
+  ["mongodb", ["mongo"]],
+  ["mysql", ["mysql"]],
+  ["postman", ["postman"]],
+  ["vercel", ["vercel"]],
+  ["cursor", ["cursor"]],
+  ["claude", ["claude"]],
+  ["git", ["git"]],
+];
+
+function resolveTechKey(name) {
+  const norm = String(name).toLowerCase().replace(/[^a-z0-9]/g, "");
+  for (const [key, needles] of TECH_MATCHERS) {
+    if (needles.some((needle) => norm.includes(needle))) return key;
+  }
+  return null;
+}
+
+/**
+ * Monochrome brand mark for a skill from portfolio.json (adapts to theme).
+ * Non-brand skills fall back to generic API / auth / code glyphs.
+ */
+export function TechIcon({ name, ...props }) {
+  const key = resolveTechKey(name);
+  const path = key ? TECH_PATHS[key] : null;
+
+  if (path) {
+    return (
+      <FillIcon {...props}>
+        <path d={path} />
+      </FillIcon>
+    );
+  }
+
+  const norm = String(name).toLowerCase();
+  if (/api/.test(norm)) return <BracesIcon {...props} />;
+  if (/jwt|auth|token/.test(norm)) return <LockIcon {...props} />;
+  return <CodeIcon {...props} />;
 }

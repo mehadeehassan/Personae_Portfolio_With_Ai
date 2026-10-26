@@ -1,3 +1,4 @@
+import Image from "next/image";
 import data from "@/data/portfolio.json";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
@@ -29,7 +30,23 @@ export default function About() {
 
           <Reveal delay={200}>
             <aside className="card card-hover h-fit p-6 sm:p-7 lg:sticky lg:top-24">
-              <h3 className="text-sm font-semibold uppercase tracking-wider text-foreground">
+              <div className="flex items-center gap-4 border-b border-line pb-5">
+                <Image
+                  src={data.profile.photo}
+                  alt={`Professional portrait of ${data.profile.name}`}
+                  width={112}
+                  height={112}
+                  sizes="112px"
+                  className="h-16 w-16 shrink-0 rounded-full object-cover ring-2 ring-accent/30"
+                />
+                <div>
+                  <p className="font-semibold leading-tight">{data.profile.name}</p>
+                  <p className="mt-1 text-xs leading-relaxed text-muted">
+                    Full Stack (MERN) · {data.profile.location}
+                  </p>
+                </div>
+              </div>
+              <h3 className="mt-5 text-sm font-semibold uppercase tracking-wider text-foreground">
                 Quick facts
               </h3>
               <ul className="mt-4 flex flex-col gap-3.5">

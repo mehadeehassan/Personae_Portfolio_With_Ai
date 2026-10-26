@@ -1,6 +1,6 @@
 import Link from "next/link";
 import data from "@/data/portfolio.json";
-import { SocialIcon } from "@/components/icons";
+import { BracesIcon, SocialIcon } from "@/components/icons";
 
 export default function Footer() {
   const { profile, socials, nav, footer } = data;
@@ -12,8 +12,8 @@ export default function Footer() {
       <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-12 sm:px-6 md:grid-cols-[1.4fr_1fr_1fr] lg:px-8">
         <div>
           <Link href="/#home" className="flex items-center gap-2.5" aria-label="Back to top">
-            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand text-white font-bold text-sm">
-              MH
+            <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-lg">
+              <BracesIcon size={18} strokeWidth={2.2} />
             </span>
             <span className="font-semibold tracking-tight">
               {profile.name}

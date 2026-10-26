@@ -5,6 +5,7 @@ import Link from "next/link";
 import data from "@/data/portfolio.json";
 import ThemeToggle from "@/components/ThemeToggle";
 import {
+  BracesIcon,
   SocialIcon,
   MenuIcon,
   CloseIcon,
@@ -52,8 +53,8 @@ export default function Navbar() {
       <div className="mx-auto flex h-16 w-full max-w-6xl items-center justify-between px-4 sm:px-6 lg:px-8">
         {/* Logo */}
         <Link href="/#home" className="flex items-center gap-2.5 group" aria-label="Back to top">
-          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand text-white font-bold text-sm shadow-lg">
-            MH
+          <span className="flex h-9 w-9 items-center justify-center rounded-xl bg-gradient-brand text-white shadow-lg">
+            <BracesIcon size={18} strokeWidth={2.2} />
           </span>
           <span className="hidden sm:block font-semibold tracking-tight">
             {data.profile.name}

@@ -1,8 +1,7 @@
 import data from "@/data/portfolio.json";
 import Reveal from "@/components/Reveal";
 import SectionHeading from "@/components/SectionHeading";
-import SkillRing from "@/components/SkillRing";
-import { CodeIcon } from "@/components/icons";
+import { CodeIcon, TechIcon } from "@/components/icons";
 
 export default function Skills() {
   const { skillGroups, skillChips } = data;
@@ -22,7 +21,7 @@ export default function Skills() {
               The tools I <span className="text-gradient">build with</span>
             </>
           }
-          description="A snapshot of my core stack — grouped by the layer of the web they live in, with an honest estimate of how confident I am in each."
+          description="The stack I reach for every day — grouped by the layer of the web it lives in."
         />
 
         <div className="grid gap-6 sm:grid-cols-2">
@@ -33,9 +32,19 @@ export default function Skills() {
                   <span className="h-2 w-2 rounded-full bg-gradient-brand" />
                   {group.category}
                 </h3>
-                <div className="mt-5 grid grid-cols-2 gap-x-2 gap-y-5 sm:grid-cols-4">
+                <div className="mt-5 grid grid-cols-2 gap-2.5 sm:grid-cols-4">
                   {group.items.map((skill) => (
-                    <SkillRing key={skill.name} name={skill.name} level={skill.level} />
+                    <div
+                      key={skill.name}
+                      className="group/tile flex flex-col items-center gap-2.5 rounded-xl border border-line bg-surface/60 px-2.5 py-4 text-center transition-all duration-300 hover:-translate-y-0.5 hover:border-accent/50 hover:bg-surface"
+                    >
+                      <span className="flex h-10 w-10 items-center justify-center text-muted transition-colors duration-300 group-hover/tile:text-accent">
+                        <TechIcon name={skill.name} size={26} />
+                      </span>
+                      <span className="text-xs font-medium leading-tight text-muted transition-colors duration-300 group-hover/tile:text-foreground">
+                        {skill.name}
+                      </span>
+                    </div>
                   ))}
                 </div>
               </div>

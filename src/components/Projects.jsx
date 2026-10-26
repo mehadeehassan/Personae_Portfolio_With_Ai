@@ -12,7 +12,7 @@ import {
   ExternalLinkIcon,
 } from "@/components/icons";
 
-const PAGE_SIZE = 9;
+const PAGE_SIZE = 3;
 
 function isRealUrl(url) {
   return Boolean(url) && !String(url).startsWith("_hint");
